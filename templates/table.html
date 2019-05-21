@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block titulo %} Formulario {% endblock %}
+
+{% block corpo %} 
+
+ <table style="width:100%">
+  <tr>
+    <th>Nome</th>
+    <th>E-mail</th>
+  </tr>
+  <tr align="center">
+    <td>{{ dados[0] }}</td>
+    <td>{{ dados[1] }}</td>
+  </tr>
+</table> 
+{% endblock %}

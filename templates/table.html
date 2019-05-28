@@ -7,7 +7,15 @@
  <div class="header">
  
   <div class="header-right">
-    <a class="active" >Logado em {{ dados[0] }}</a>
+    <a class="active" >
+      {% if session['logged_in'] %}
+        olá, {{ dados[0] }}
+        <a href="/logout">logout</a>
+      {% else %}
+        <a href="/login">login</a>
+      {% endif %}
+        
+    </a>
   </div>
 </div> 
 

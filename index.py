@@ -14,6 +14,7 @@ def login():
    if request.method == 'POST':
       session['username'] = request.form['username']
       session['email'] = request.form['email']
+      session['logged_in'] = True
       return redirect('/foi')
    return '''
 	
@@ -30,16 +31,18 @@ def login():
 def logout():
    # remove the username from the session if it is there
    session.pop('username', None)
-   return redirect('/')
+   session['logged_in'] = False
+   return redirect('/foi')
 
 @app.route("/foi", methods=["GET", "POST"])
 def tabela():
-    dados = []
-    n = session['username']
-    e = session['email']
-    dados.append(n)
-    dados.append(e)
-    return render_template("table.html", dados=dados)
+   dados = ['a', 'a']
+   #n = session['username']
+   #e = session['email']
+   #dados.append(n)
+   #dados.append(e)
+   
+   return render_template("table.html", dados=dados)
 
 @app.route("/a", methods=["GET", "POST"])
 def formulario():
